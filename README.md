@@ -19,6 +19,11 @@ To install opencsv
 ## Lancement de l'application
 
 - IDE (Intellij pour ma part) pour lancer l'application
-- ```
-mvn clean
-- ```
+```
+mvn clean package
+java -jar target/ValoCB-1.0.0.jar src/main/resources/Forex.csv src/main/resources/Prices.csv src/main/resources/Product.csv
+```
+
+Les résultats apparaitront dans le dossier outputs.
+
+
