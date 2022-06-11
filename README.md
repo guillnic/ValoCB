@@ -6,6 +6,7 @@
 - Java 17.0.3
 - au.com.bytecode.opencsv : 2.4
 
+To install opencsv
 >```
 >mvn install:install-file \
 >-Dfile=opencsv-2.4.jar \
@@ -14,3 +15,10 @@
 >-Dversion=2.4 \
 >-Dpackaging=jar
 >```
+
+## Lancement de l'application
+
+- IDE (Intellij pour ma part) pour lancer l'application
+- ```
+- mvn clean
+- ```
