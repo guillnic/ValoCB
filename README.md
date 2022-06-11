@@ -20,5 +20,5 @@ To install opencsv
 
 - IDE (Intellij pour ma part) pour lancer l'application
 - ```
-- mvn clean
+mvn clean
 - ```
