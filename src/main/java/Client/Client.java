@@ -1,3 +1,5 @@
+package Client;
+
 import java.util.*;
 
 public class Client {
@@ -50,9 +52,9 @@ public class Client {
     @Override
     public String toString() {
         StringBuffer clientString = new StringBuffer();
-        clientString.append("Client's name = " + name + "\n");
+        clientString.append("Client.Client's name = " + name + "\n");
         for (Map.Entry<String, Integer> entry : products.entrySet()) {
-            clientString.append("Product : " + entry.getKey() + ", Quantity : " + entry.getValue() + "\n");
+            clientString.append("Product.Product : " + entry.getKey() + ", Quantity : " + entry.getValue() + "\n");
         }
         return clientString.toString();
     }

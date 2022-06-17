@@ -1,3 +1,9 @@
+package Portfolio;
+
+import Forex.Forex;
+import Product.Product;
+import Product.Underlying;
+
 import java.util.*;
 
 public class Portfolio {
@@ -76,7 +82,7 @@ public class Portfolio {
     @Override
     public String toString() {
         StringBuffer portfolioString = new StringBuffer();
-        portfolioString.append("Portfolio : " + name + "\n");
+        portfolioString.append("Portfolio.Portfolio : " + name + "\n");
         for (Map.Entry<String, ArrayList<Product>> entry : products.entrySet()) {
             portfolioString.append(entry.getKey() + "\n" + entry.getValue() + "\n");
         }
