@@ -46,7 +46,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                ValoCB
+                                ValoCB.ValoCB
                             </mainClass>
                         </manifest>
                     </archive>
