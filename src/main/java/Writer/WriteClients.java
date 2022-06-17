@@ -19,7 +19,7 @@ public class WriteClients {
          * This function writes the results of the processing of the capital of the clients in a csv file
          * **/
         CSVWriter writer = new CSVWriter(new FileWriter(fileName, false), ',', CSVWriter.NO_QUOTE_CHARACTER);
-        String header = "Client.Client,capital";
+        String header = "Client,capital";
         writer.writeNext(header);
 
         for (var entry : clientsCapital.entrySet()) {
