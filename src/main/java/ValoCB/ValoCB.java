@@ -120,6 +120,5 @@ public class ValoCB{
 
 //        PrintPorfolios.printPortfolios(valoCB.getPortfolios());
 //        PrintClients.printClients(valoCB.getClients());
-
     }
 }
