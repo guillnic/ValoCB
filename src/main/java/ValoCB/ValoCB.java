@@ -109,15 +109,19 @@ public class ValoCB{
         return capital;
     }
 
+    public void computeCapitalsAndPrices() throws IOException {
+        HashMap<String, Float> portfolioPrice = this.portfoliosPrice(this.forex);
+        writePortfolios("outputs/Reporting-portfolio.csv", portfolioPrice);
+        HashMap<String, Float> clientsCapital = this.clientsCapital(this.productsPrices());
+        writeClient("outputs/Reporting-client.csv", clientsCapital);
+    }
+
     public static void main(String[] args) throws IOException {
         ValoCB valoCB = new ValoCB(args[0], args[1], args[2]);
+        valoCB.computeCapitalsAndPrices();
 
 //        PrintPorfolios.printPortfolios(valoCB.getPortfolios());
 //        PrintClients.printClients(valoCB.getClients());
 
-        HashMap<String, Float> portfolioPrice = valoCB.portfoliosPrice(valoCB.forex);
-        writePortfolios("outputs/Reporting-portfolio.csv", portfolioPrice);
-        HashMap<String, Float> clientsCapital = valoCB.clientsCapital(valoCB.productsPrices());
-        writeClient("outputs/Reporting-client.csv", clientsCapital);
     }
 }
