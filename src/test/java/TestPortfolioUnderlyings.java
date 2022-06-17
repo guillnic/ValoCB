@@ -1,3 +1,7 @@
+import Portfolio.Portfolio;
+import Product.Product;
+import Product.Underlying;
+import ValoCB.ValoCB;
 import org.junit.Assert;
 import org.junit.Test;
 

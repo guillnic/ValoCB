@@ -1,3 +1,4 @@
+import ValoCB.ValoCB;
 import org.junit.Assert;
 import org.junit.Test;
 

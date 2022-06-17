@@ -1,3 +1,5 @@
+import Client.Client;
+import ValoCB.ValoCB;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +13,7 @@ public class TestClient {
     */
     @Test
     public void testClient(){
-        ValoCB  valoCB = new ValoCB("/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Forex.csv", "/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Prices.csv", "/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Product.csv");
+        ValoCB valoCB = new ValoCB("/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Forex.csv", "/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Prices.csv", "/Users/guillermain/Desktop/Kata - Code Busters/ValoCB/src/main/resources/Product.csv");
         HashMap<String, Client> client = valoCB.getClients();
 
         Client c1 = client.get("C1");
