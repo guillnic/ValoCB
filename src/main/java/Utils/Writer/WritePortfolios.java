@@ -1,4 +1,4 @@
-package Writer;
+package Utils.Writer;
 
 import au.com.bytecode.opencsv.CSVWriter;
 
@@ -6,27 +6,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class WriteClients {
-    private WriteClients() {
+public class WritePortfolios {
+    // Non-instantiable class
+    private WritePortfolios() {
         throw new AssertionError();
     }
 
-    public static void writeClient(String fileName, HashMap<String, Float> clientsCapital) throws IOException {
+    public static void writePortfolios(String fileName, HashMap<String, Float> portfolioPrice) throws IOException {
         /**
          * @param fileName : The name of the output file
-         * @param clientsCapital : The data that maps the clients with their capital
+         * @param portfolioPrice : The data that maps the portfolios with their price
          * @throws IOException
-         * This function writes the results of the processing of the capital of the clients in a csv file
+         * This function writes the results of the processing of the value of the portfolio in a csv file
          * **/
         CSVWriter writer = new CSVWriter(new FileWriter(fileName, false), ',', CSVWriter.NO_QUOTE_CHARACTER);
-        String header = "Client,capital";
+        String header = "PTF,price";
         writer.writeNext(header);
 
-        for (var entry : clientsCapital.entrySet()) {
+        for (var entry : portfolioPrice.entrySet()) {
             String[] nextLine = (entry.getKey() + "," + entry.getValue()).split(",");
             writer.writeNext(nextLine);
         }
         writer.close();
     }
-
 }

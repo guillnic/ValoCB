@@ -1,4 +1,4 @@
-package Reader;
+package Utils.Reader;
 
 import Client.Client;
 import Forex.Forex;

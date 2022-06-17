@@ -2,8 +2,6 @@ package ValoCB;
 
 import Client.Client;
 import Forex.Forex;
-import Print.PrintClients;
-import Print.PrintPorfolios;
 import Portfolio.Portfolio;
 import Product.Product;
 import Product.Underlying;
@@ -13,11 +11,11 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.*;
 
-import static Reader.ReadForex.readForex;
-import static Reader.ReadPrices.readPrices;
-import static Reader.ReadProducts.readProduct;
-import static Writer.WriteClients.writeClient;
-import static Writer.WritePortfolios.writePortfolios;
+import static Utils.Reader.ReadForex.readForex;
+import static Utils.Reader.ReadPrices.readPrices;
+import static Utils.Reader.ReadProducts.readProduct;
+import static Utils.Writer.WriteClients.writeClient;
+import static Utils.Writer.WritePortfolios.writePortfolios;
 
 public class ValoCB{
     private final HashMap<String, Portfolio> portfolios;
