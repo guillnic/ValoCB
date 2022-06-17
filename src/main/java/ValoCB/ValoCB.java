@@ -1,3 +1,9 @@
+import Client.Client;
+import Forex.Forex;
+import Portfolio.Portfolio;
+import Product.Product;
+import Product.Underlying;
+
 import au.com.bytecode.opencsv.CSVReader;
 import au.com.bytecode.opencsv.CSVWriter;
 
@@ -12,7 +18,6 @@ import java.util.*;
 public class ValoCB{
     private final HashMap<String, Portfolio> portfolios;
     private final HashMap<String, Client> clients;
-    // private final HashMap<String, ArrayList<Product>> products;
     private final Forex forex;
 
     public ValoCB(String forexFile, String pricesFile, String productsFile) {
@@ -121,13 +126,13 @@ public class ValoCB{
                         portfolio.addProduct(nextLine[1], new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
                     }
 
-//                    ArrayList<Product> product = products.get(nextLine[1]);
+//                    ArrayList<Product.Product> product = products.get(nextLine[1]);
 //                    // Check whether the product exists
 //                    if (product != null){
-//                        product.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
+//                        product.add(new Product.Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
 //                    } else {
-//                        ArrayList<Product> underlyings = new ArrayList<>();
-//                        underlyings.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
+//                        ArrayList<Product.Product> underlyings = new ArrayList<>();
+//                        underlyings.add(new Product.Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
 //                        products.put(nextLine[1], underlyings);
 //                    }
                 }
@@ -225,7 +230,7 @@ public class ValoCB{
          * This function writes the results of the processing of the capital of the clients in a csv file
          * **/
         CSVWriter writer = new CSVWriter(new FileWriter(fileName, false), ',', CSVWriter.NO_QUOTE_CHARACTER);
-        String header = "Client,capital";
+        String header = "Client.Client,capital";
         writer.writeNext(header);
 
         for (Map.Entry<String, Float> entry : clientsCapital.entrySet()) {
