@@ -18,6 +18,7 @@ public class ReadPrices {
 
     public static void readPrices(ValoCB valoCB, String fileName) {
         /**
+         * @param valoCB : the instance of ValoCB
          * @param fileName : the name of csv file which contains the products, their underlyings
          *                 and the portfolio they are associated with
          * This function sets the attributes "portfolios" and "products" of the class
@@ -48,15 +49,6 @@ public class ReadPrices {
                         // Add the new underlying to the portfolio
                         portfolio.addProduct(nextLine[1], new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
                     }
-//                    ArrayList<Product.Product> product = products.get(nextLine[1]);
-//                    // Check whether the product exists
-//                    if (product != null){
-//                        product.add(new Product.Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
-//                    } else {
-//                        ArrayList<Product.Product> underlyings = new ArrayList<>();
-//                        underlyings.add(new Product.Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
-//                        products.put(nextLine[1], underlyings);
-//                    }
                 }
             }
         } catch (IOException e) {

@@ -20,6 +20,7 @@ public class ReadForex {
 
     public static void readForex(ValoCB valoCB, String fileName) {
         /**
+         * @param valoCB : the instance of ValoCB
          * @param fileName : the name of csv file which contains the currency exchange values
          * This function sets the forex attribute of the class
          * **/

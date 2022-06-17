@@ -22,12 +22,12 @@ public class ReadProducts {
 
     public static void readProduct(ValoCB valoCB, String fileName) {
         /**
+         * @param valoCB : the instance of ValoCB
          * @param fileName : the name of csv file which contains the products, their clients and the quantity they own
          * This function sets the attribute "clients" and expands "portfolios" of the class
          * **/
         HashMap<String, Portfolio> portfolios = valoCB.getPortfolios();
         HashMap<String, Client> clients = valoCB.getClients();
-        Forex forex = valoCB.getForex();
         try {
             var fr = new FileReader(fileName, StandardCharsets.UTF_8);
             var reader = new CSVReader(fr);
