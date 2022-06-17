@@ -1,3 +1,6 @@
+package Product;
+
+import Forex.Forex;
 import java.util.Objects;
 
 public class Underlying extends Product{

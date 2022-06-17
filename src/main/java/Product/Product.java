@@ -1,3 +1,5 @@
+package Product;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -15,7 +17,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product : " + name;
+        return "Product.Product : " + name;
     }
 
     @Override
