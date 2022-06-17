@@ -12,7 +12,7 @@ import java.util.*;
 public class ValoCB{
     private final HashMap<String, Portfolio> portfolios;
     private final HashMap<String, Client> clients;
-    private final HashMap<String, ArrayList<Product>> products;
+    // private final HashMap<String, ArrayList<Product>> products;
     private final Forex forex;
 
     public ValoCB(String forexFile, String pricesFile, String productsFile) {
@@ -24,7 +24,7 @@ public class ValoCB{
          **/
         portfolios = new HashMap<>();
         clients = new HashMap<>();
-        products = new HashMap<>();
+//        products = new HashMap<>();
         forex = new Forex();
 
         readForex(forexFile);
@@ -97,8 +97,9 @@ public class ValoCB{
          *                 and the portfolio they are associated with
          * This function sets the attributes "portfolios" and "products" of the class
          * **/
-        try (var fr = new FileReader(fileName, StandardCharsets.UTF_8);
-             var reader = new CSVReader(fr)) {
+        try {
+            var fr = new FileReader(fileName, StandardCharsets.UTF_8);
+            var reader = new CSVReader(fr);
             String[] nextLine;
             boolean header = true;
 
@@ -119,15 +120,16 @@ public class ValoCB{
                         // Add the new underlying to the portfolio
                         portfolio.addProduct(nextLine[1], new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
                     }
-                    ArrayList<Product> product = products.get(nextLine[1]);
-                    // Check whether the product exists
-                    if (product != null){
-                        product.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
-                    } else {
-                        ArrayList<Product> underlyings = new ArrayList<>();
-                        underlyings.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
-                        products.put(nextLine[1], underlyings);
-                    }
+
+//                    ArrayList<Product> product = products.get(nextLine[1]);
+//                    // Check whether the product exists
+//                    if (product != null){
+//                        product.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
+//                    } else {
+//                        ArrayList<Product> underlyings = new ArrayList<>();
+//                        underlyings.add(new Underlying(nextLine[1], nextLine[2], nextLine[3], stringToFloat(nextLine[4])));
+//                        products.put(nextLine[1], underlyings);
+//                    }
                 }
             }
         } catch (IOException e) {
@@ -238,12 +240,14 @@ public class ValoCB{
          * @return A data structure that maps the name of the products with their price
          * **/
         HashMap<String, Float> prices = new HashMap<>();
-        for (Map.Entry<String, ArrayList<Product>> entry : products.entrySet()) {
-            float price = 0;
-            for (Product p : entry.getValue()){
-                price += ((Underlying) p).price(forex);
+        for(var p: portfolios.entrySet()){
+            for (Map.Entry<String, ArrayList<Product>> entry : p.getValue().getProducts().entrySet()) {
+                float price = 0;
+                for (Product pro : entry.getValue()){
+                    price += ((Underlying) pro).price(forex);
+                }
+                prices.put(entry.getKey(), price);
             }
-            prices.put(entry.getKey(), price);
         }
         return prices;
     }
